@@ -1,4 +1,4 @@
 # stock-trader-vue-vuex-app
 
 //start
-npm run dev
+npm run dev 
