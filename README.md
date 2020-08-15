@@ -2,3 +2,7 @@
 
 //start
 npm run dev 
+
+
+//dist folder for production
+npm run build
