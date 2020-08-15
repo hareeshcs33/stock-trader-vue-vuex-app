@@ -9,7 +9,7 @@ export default {
     return {};
   },
   methods: {},
-  components: {},
+  components: {}
 };
 </script>
 <style></style>

@@ -1,16 +1,12 @@
 <template>
-    <div class="container">
-        <h4>Home</h4>
-    </div>
+  <div class="container">
+    <h4>Home</h4>
+  </div>
 </template>
 <script>
-
 export default {
-    computed: {
-    },
-    methods: {
-    },
-    components: {
-    }
-}
+  computed: {},
+  methods: {},
+  components: {}
+};
 </script>

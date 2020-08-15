@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div class="app-page">
-        <navigation></navigation>
-        <hr class="mt-0" />
-        <router-view/>
+      <navigation></navigation>
+      <hr class="mt-0" />
+      <router-view/>
     </div>
   </div>
 </template>
