@@ -4,9 +4,11 @@
   </div>
 </template>
 <script>
+import Home from '../mixins/home';
+
 export default {
-  computed: {},
-  methods: {},
-  components: {}
-};
+  mixins: [
+    Home,
+  ]
+}
 </script>
