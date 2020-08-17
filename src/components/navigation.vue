@@ -1,10 +1,14 @@
 <template>
     <div class="container-fluid">
-        <ul class="mb-0">
-            <li><router-link to="/home">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
-            <li><router-link to="/contact">contact</router-link></li>
-        </ul>
+        <div class="d-flex align-items-center justify-content-between">
+            <ul class="mb-0">
+                <li><router-link to="/"><i class="fa fa-home" aria-hidden="true"></i><small>(Home)</small></router-link></li>
+            </ul>
+            <ul class="mb-0">
+                <li><router-link to="/about">About</router-link></li>
+                <li><router-link to="/contact">contact</router-link></li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
