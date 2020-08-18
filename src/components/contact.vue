@@ -4,12 +4,12 @@
   </div>
 </template>
 <script>
+import Contact from '../mixins/contact';
+
 export default {
-  data() {
-    return {};
-  },
-  methods: {},
-  components: {}
+  mixins: [
+    Contact,
+  ]
 };
 </script>
 <style></style>
