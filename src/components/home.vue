@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <h3>Home</h3>
+    <div class="home-content-page">
+      <span><i class="fa fa-home home-bg-icon" aria-hidden="true"></i></span>
+    </div>
   </div>
 </template>
 <script>
@@ -12,3 +15,16 @@ export default {
   ]
 }
 </script>
+<style scoped>
+.container {
+  position: relative;
+  height: 100vh;
+}
+.home-bg-icon {
+  position: absolute;
+  font-size: 190px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
