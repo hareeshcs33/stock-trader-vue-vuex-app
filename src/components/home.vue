@@ -18,7 +18,8 @@ export default {
 <style scoped>
 .container {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 100px);
+
 }
 .home-bg-icon {
   position: absolute;
