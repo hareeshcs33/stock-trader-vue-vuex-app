@@ -1,24 +1,38 @@
 <template>
   <div id="app">
     <div class="app-page">
-      <navigation></navigation>
-      <hr class="mt-0" />
-      <router-view/>
+      <template v-if="!baseComponent && !baseProducts">
+        <navigation></navigation>
+        <hr class="mt-0" />
+        <router-view/>
+      </template>
+      <template v-else-if="!baseProducts">
+        <base-component></base-component>
+      </template>
+      <template v-else>
+        <base-products></base-products>
+      </template>
+
     </div>
   </div>
 </template>
 
 <script>
 import Navigation from '@/components/navigation.vue'
+import BaseComponent from './pages/module/components/base-component.vue'
+import BaseProducts from './pages/module/components/base-products.vue'
 export default {
   name: 'App',
   data() {
     return {
-      
+      baseComponent: false,
+      baseProducts: true,
     }
   },
   components: {
     Navigation,
+    BaseComponent,
+    BaseProducts,
   }
 }
 </script>
