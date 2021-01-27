@@ -4,11 +4,9 @@
   </div>
 </template>
 <script>
-import About from '../mixins/about';
+import About from "../mixins/about";
 
 export default {
-  mixins: [
-    About,
-  ]
-}
+  mixins: [About]
+};
 </script>

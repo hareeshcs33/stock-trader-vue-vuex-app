@@ -7,19 +7,16 @@
   </div>
 </template>
 <script>
-import Home from '../mixins/home';
+import Home from "../mixins/home";
 
 export default {
-  mixins: [
-    Home,
-  ]
-}
+  mixins: [Home]
+};
 </script>
 <style scoped>
 .container {
   position: relative;
   height: calc(100vh - 100px);
-
 }
 .home-bg-icon {
   position: absolute;
