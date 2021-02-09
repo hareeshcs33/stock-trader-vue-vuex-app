@@ -28,8 +28,14 @@
           :checked="!anyRemainingItems"
         />Check All
       </div>
-      <div>{{ remainingItems }} Items Left</div>
+      <div class="d-flex">
+        <span
+          ><strong>{{ completedItems }}</strong> Items Complete and
+          <strong>{{ remainingItems }}</strong> Items Active</span
+        >
+      </div>
     </div>
+    <hr />
     <div class="d-flex justify-content-between">
       <button class="btn btn-outline-info px-5" @click="filterItems = 'all'">
         All
@@ -42,6 +48,13 @@
         @click="filterItems = 'completed'"
       >
         Cmpleted
+      </button>
+      <button
+        class="btn btn-outline-danger px-5"
+        @click="clearCompletedItems"
+        v-if="completedItems"
+      >
+        Clear
       </button>
     </div>
   </div>
@@ -91,9 +104,15 @@ export default {
     },
     showCompletedItems() {
       console.log("showCompletedItems");
+    },
+    clearCompletedItems() {
+      this.todos = this.todos.filter(item => !item.completed);
     }
   },
   computed: {
+    completedItems() {
+      return this.todos.filter(item => item.completed).length;
+    },
     remainingItems() {
       return this.todos.filter(item => !item.completed).length;
     },

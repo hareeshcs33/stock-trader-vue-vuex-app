@@ -2,11 +2,7 @@
   <div class="todo-item">
     <div class="d-flex w-100">
       <div class="mr-2">
-        <input
-          type="checkbox"
-          v-model="todo.completed"
-          @change="itemCompleted(index)"
-        />
+        <input type="checkbox" v-model="todo.completed" />
       </div>
       <div class="d-flex justify-content-between w-100">
         <input
@@ -29,6 +25,7 @@
         <button
           class="btn btn-sm btn-danger text-uppercase"
           @click="deleteItem(index)"
+          :disabled="todo.completed"
         >
           delete
         </button>
@@ -67,7 +64,9 @@ export default {
     },
     editItem() {
       this.beforeEditCapture = this.todo.title;
-      this.editTodoItem = true;
+      if (!this.todo.completed) {
+        this.editTodoItem = true;
+      }
     },
     editDone() {
       this.editTodoItem = false;
@@ -75,9 +74,6 @@ export default {
     cancelEdit() {
       this.todo.title = this.beforeEditCapture;
       this.editTodoItem = false;
-    },
-    itemCompleted(index) {
-      console.log("is completed ? ", this.todo.completed, index);
     }
   }
 };
