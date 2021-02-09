@@ -11,13 +11,38 @@
     </div>
     <div>
       <todo-item
-        v-for="(todo, index) in todos"
+        v-for="(todo, index) in filteredTodos"
         :todo="todo"
         :index="index"
         :key="todo.id"
         @deleteItem="deleteItem"
       >
       </todo-item>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <input
+          class="mr-2"
+          type="checkbox"
+          @change="checkAll"
+          :checked="!anyRemainingItems"
+        />Check All
+      </div>
+      <div>{{ remainingItems }} Items Left</div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-outline-info px-5" @click="filterItems = 'all'">
+        All
+      </button>
+      <button class="btn btn-outline-info px-5" @click="filterItems = 'active'">
+        Ative
+      </button>
+      <button
+        class="btn btn-outline-info px-5"
+        @click="filterItems = 'completed'"
+      >
+        Cmpleted
+      </button>
     </div>
   </div>
 </template>
@@ -29,6 +54,7 @@ export default {
       newTodo: "",
       todoId: 4,
       completed: false,
+      filterItems: "all",
       todos: [
         { id: 1, title: "Finish Vue Screencast", completed: false },
         { id: 2, title: "Take over world", completed: false },
@@ -51,6 +77,38 @@ export default {
     },
     deleteItem(index) {
       this.todos.splice(index, 1);
+    },
+    checkAll() {
+      this.todos.forEach(item => {
+        item.completed = event.target.checked;
+      });
+    },
+    showAllItems() {
+      console.log("show all");
+    },
+    showActiveItems() {
+      console.log("showActiveItems");
+    },
+    showCompletedItems() {
+      console.log("showCompletedItems");
+    }
+  },
+  computed: {
+    remainingItems() {
+      return this.todos.filter(item => !item.completed).length;
+    },
+    anyRemainingItems() {
+      return this.remainingItems != 0;
+    },
+    filteredTodos() {
+      if (this.filterItems == "all") {
+        return this.todos;
+      } else if (this.filterItems == "active") {
+        return this.todos.filter(item => !item.completed);
+      } else if (this.filterItems == "completed") {
+        return this.todos.filter(item => item.completed);
+      }
+      return this.todos;
     }
   },
   components: {

@@ -1,24 +1,39 @@
 <template>
   <div class="todo-item">
-    <div class="d-flex justify-content-between">
-      <input
-        class="form-control"
-        type="text"
-        v-model="todo.title"
-        v-if="editTodoItem"
-        @keydown.enter="editDone"
-        @blur="editDone"
-        @keydown.esc="cancelEdit"
-        v-focus
-      />
-      <div @dblclick="editItem" v-else>{{ todo.title }}</div>
+    <div class="d-flex w-100">
+      <div class="mr-2">
+        <input
+          type="checkbox"
+          v-model="todo.completed"
+          @change="itemCompleted(index)"
+        />
+      </div>
+      <div class="d-flex justify-content-between w-100">
+        <input
+          v-if="editTodoItem"
+          class="form-control"
+          type="text"
+          v-model="todo.title"
+          @keydown.enter="editDone"
+          @blur="editDone"
+          @keydown.esc="cancelEdit"
+          v-focus
+        />
+        <div
+          :class="todo.completed ? 'font-weight-bold' : ''"
+          @dblclick="editItem"
+          v-else
+        >
+          {{ todo.title }}
+        </div>
+        <button
+          class="btn btn-sm btn-danger text-uppercase"
+          @click="deleteItem(index)"
+        >
+          delete
+        </button>
+      </div>
     </div>
-    <button
-      class="btn btn-sm btn-danger text-uppercase"
-      @click="deleteItem(index)"
-    >
-      delete
-    </button>
   </div>
 </template>
 <script>
@@ -60,6 +75,9 @@ export default {
     cancelEdit() {
       this.todo.title = this.beforeEditCapture;
       this.editTodoItem = false;
+    },
+    itemCompleted(index) {
+      console.log("is completed ? ", this.todo.completed, index);
     }
   }
 };
