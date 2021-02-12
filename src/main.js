@@ -10,12 +10,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import vuescroll from 'vue-scroll';
 
+import axios from 'axios'
+
+
+window.axios = axios
+axios.defaults.baseURL = 'http://127.0.0.1:3333'
+
 import { store } from './store/store';
 
 Vue.use(vuescroll);
 Vue.use(BootstrapVue);
 
-
+// Vue.use(axios);
 
 
 Vue.config.productionTip = false

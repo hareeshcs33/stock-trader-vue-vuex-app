@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <ul class="mb-0">
         <li>
-          <router-link to="/"
+          <router-link to="/home"
             ><i class="fa fa-home" aria-hidden="true"></i
             ><small>(Home)</small></router-link
           >
@@ -12,6 +12,9 @@
       <ul class="mb-0">
         <li><router-link to="/about">About</router-link></li>
         <li><router-link to="/contact">contact</router-link></li>
+        <li><router-link to="/">Login</router-link></li>
+        <li><router-link to="/signUp">SignUp</router-link></li>
+        <li>User</li>
       </ul>
     </div>
   </div>

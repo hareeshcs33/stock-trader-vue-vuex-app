@@ -26,9 +26,9 @@ export default {
   name: "App",
   data() {
     return {
-      baseComponent: false,
+      baseComponent: true,
       baseProducts: false,
-      baseTodoComponent: true
+      baseTodoComponent: false
     };
   },
   components: {
