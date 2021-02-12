@@ -9,6 +9,9 @@
           placeholder="Enter email"
           id="email"
         />
+        <div v-if="false">
+          <span v-for="err in errorMsg" :key="err">{{ err.email }}</span>
+        </div>
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
@@ -18,6 +21,9 @@
           placeholder="Enter password"
           id="pwd"
         />
+        <div v-if="false">
+          <span v-for="err in errorMsg" :key="err">{{ err.password }}</span>
+        </div>
       </div>
       <button @click="login" class="btn btn-primary">Login</button>
       <router-link to="/signUp">SignUp</router-link>
@@ -27,7 +33,15 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      errorMsg: [
+        {
+          username: "Enter username"
+        },
+        { email: "Enter email" },
+        { password: "Enter password" }
+      ]
+    };
   },
   methods: {
     login() {
